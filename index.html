@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Portfolio - Pavan Soni</title>
+
+  <!-- bootstrap css cdn link  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+
+  <!-- custom css file -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- bootstrap icon cdn link  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+  <!-- for adding animation to website we have use AOS library 
+    AOS Library css file cdn link -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- jquery cdn link  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- navbar starts -->
+  <!-- Navbar Starts -->
+  <nav id="navbar-top" class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand fw-bold fs-2" href="#" style="color: #3f396d">Portfolio</a>
+      <button class="nav-menu d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-menu-button-fill"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-4" style="font-size: 1.1rem">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#service">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+      <button class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block" data-bs-toggle="modal"
+        data-bs-target="#getInTouchModal">
+        Contact
+      </button>
+    </div>
+  </nav>
+  <!-- Navbar Ends -->
+
+  <!-- Get in Touch Modal -->
+  <div class="modal fade" id="getInTouchModal" tabindex="-1" aria-labelledby="getInTouchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="getInTouchModalLabel">Get in Touch</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name="google-sheet">
+            <div class="mb-3">
+              <label for="email" class="form-label">Gmail</label>
+              <input name="Name" type="email" class="form-control" id="email" placeholder="Enter your Gmail" required />
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input name="Phone" type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    //Google Sheet connect code
+    var scriptURL = "https://script.google.com/macros/s/AKfycbzN5i7_1lU4dwVEh_8Oj1tKCfY7WIofXCzkq5nbePdmiqqwxr11goJs-MKb7RBgk14O/exec";
+    var form = document.forms['google-sheet'];
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    });
+  </script>
+  <!-- navbar ends here -->
+
+  <!-- home section starts  -->
+  <section class="home pt-5 pb-5" id="home">
+    <div class="row justify-content-evenly align-middle">
+      <!-- here data-aos is used for adding aos animation  -->
+      <div class="col-10 col-md-6 text-center text-md-start" data-aos="slide-right">
+        <h2 style="color: #3f396d">
+          Hello! I Am <br /><span class="c-orange">Pavan Soni</span>
+        </h2>
+        <p class="text-muted">
+          I'm A Full Stack Developer having 2 years of experience in expertise of
+          creating Projects with fully responsive Also with backend part too.
+        </p>
+        <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill"
+          onclick="window.open('https://www.linkedin.com/in/pavan-soni-10b2842a2/', '_blank')">
+          Hire Me
+        </button>
+        <a href="" class="link ms-4 d-none">See My Work</a>
+      </div>
+      <div class="col-10 col-md-4 d-none d-md-block">
+        <img src="images/pavan soni profile.jpg" class="img-fluid rounded-circle" alt="Pavan Soni Profile Picture" />
+      </div>
+    </div>
+  </section>
+
+  <!-- home section ends here -->
+
+  <!-- expertise section starts -->
+  <section class="expertise mt-5" id="service">
+    <div class="heading text-center">
+      <small>My Expertise</small>
+      <h3>
+        Provide Wide Range of <br />
+        Digital Services
+      </h3>
+    </div>
+    <div class="row justify-content-evenly mt-5">
+      <div class="col-10 col-md-4" data-aos="fade-up">
+        <div class="service-card">
+          <div class="img">
+            <img src="images/service-icon1.png" class="w-25 img-fluid img" alt="" />
+          </div>
+          <div class="content-box mt-3">
+            <h4>Problem-Solving</h4>
+            <p class="text-muted">
+                Highlighting this skill showcases your ability to tackle challenges and deliver solutions effectively, 
+                which is crucial for both development and debugging.
+            </p>
+            <a href="" class="link">Read More</a>
+        </div>
+        
+        
+        </div>
+      </div>
+      <div class="col-md-4 col-10" data-aos="fade-up">
+        <div class="service-card">
+          <div class="img">
+            <img src="images/service-icon2.png" class="w-25 img-fluid img" alt="" />
+          </div>
+          <div class="content-box mt-3">
+            <h4>Full Stack Development</h4>
+
+            <div class="row">
+              <h6>Front-End:</h6>
+              <span>HTML, CSS, JavaScript, React.js/Angular.</span>
+            </div>
+
+            <div class="row">
+              <h6>Back-End:</h6>
+              <span>Java (Java Spring Boot), Node.js, and API development.</span>
+            </div>
+
+            <div class="row">
+              <h6>Databases:</h6>
+              <span>MySQL, MongoDB.</span>
+            </div>
+
+            <a href="" class="link">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-10" data-aos="fade-up">
+        <div class="service-card">
+          <div class="img">
+            <img src="images/service-icon3.png" class="w-25 img-fluid img" alt="" />
+          </div>
+          <div class="content-box mt-3">
+            <h4>Debugging</h4>
+            <p class="text-muted">
+                As a Java developer, I have strong debugging expertise, enabling me to identify and resolve issues efficiently.
+                I utilize tools like Eclipse Debugger, IntelliJ IDEA Debugger, and JDK tools to step through code and analyze stack traces.
+            </p>
+            <a href="" class="link">Read More</a>
+        </div>        
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- expertise section ends here -->
+
+  <!-- skill section starts -->
+  <section class="skill mt-5 py-5" id="about">
+    <div class="row justify-content-evenly">
+      <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
+        <div class="row justify-content-evenly">
+          <div class="col-10 col-md-6">
+            <div class="progress-card ms-3 ms-md-0">
+              <div class="circular-progress html-css">
+                <span class="progress-value html-progress">0%</span>
+              </div>
+              <br />
+              <span class="text">Java</span>
+            </div>
+          </div>
+          <div class="col-10 col-md-6 mt-4 mt-md-0">
+            <div class="progress-card ms-3 ms-md-0">
+              <div class="circular-progress javascript">
+                <span class="progress-value javascript-progress">0%</span>
+              </div>
+              <br />
+              <span class="text">Backend in java</span>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-evenly mt-4">
+          <div class="col-10 col-md-6">
+            <div class="progress-card ms-3 ms-md-0">
+              <div class="circular-progress php">
+                <span class="progress-value php-progress">0%</span>
+              </div>
+              <br />
+              <span class="text">SpringBoot</span>
+            </div>
+          </div>
+          <div class="col-10 col-md-6 mt-4 mt-md-0">
+            <div class="progress-card ms-3  ms-md-0">
+              <div class="circular-progress reactjs">
+                <span class="progress-value reactjs-progress">0%</span>
+              </div>
+              <br>
+              <span class="text">ReactJS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
+        <div class="heading mt-5 mt-md-3">
+          <small>My Skills</small>
+          <h3>Beautiful & Unique Digital Experiences</h3>
+          <p class="text-muted">
+            Delivering Scalable & Efficient Java Solutions
+            Expert in Core Java, object-oriented programming,
+            and multi-threading, with experience in projects like PDF generator GUI calculators, and to-do apps.
+            Skilled in building robust backend systems and dynamic user interfaces for innovative digital experiences.
+          </p>
+          <p class="text-muted">
+            Quia voluptas sit aspernatur aut odit aut fugit, sed ruiano
+            consequntar magni dolores.
+          </p>
+          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+
+            <a href="PDFs/Pavan_resume (1).pdf" download="SampleCV" style="text-decoration: none;color: #fff;">Download
+              CV</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- skill section end here -->
+
+  <!-- portfolio section starts here -->
+  <section class="portfolio" id="portfolio">
+    <div class="heading text-center pt-5">
+      <small>Creative Work</small>
+      <h3>Check My Portfolio</h3>
+    </div>
+
+    <div id="myBtnContainer" class="text-center mt-4">
+      <!-- here we will create custom attribute using data- for filtering -->
+      <button class="filter-item" data-filter="all">All</button>
+      <button class="filter-item" data-filter="Project">Project</button>
+      <button class="filter-item" data-filter="web">Web App</button>
+      <button class="filter-item" data-filter="game">Game</button>
+      <button class="filter-item" data-filter="website">Website</button>
+    </div>
+    <div class="portfolio-body">
+      <div class="row justify-content-evenly px-4">
+
+        <div class="post col-md-4 Project all col-10 mt-3 mt-md-0" data-aos="fade-up">
+          <div class="card">
+            <img src="images/EMS.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h4 class="card-title">ELECTRICITY Billing System</h4>
+              <span class="badge bg-secondary badge-pill">Java Language</span>
+              <span class="badge bg-secondary badge-pill">JDBC Connection</span>
+              <span class="badge bg-secondary badge-pill mb-2">Dynamic</span><br />
+              <a href="https://github.com/pavan958015/Electricity-Bill-Project-Test-.git" class="link"
+                target="_blank">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="post col-md-4 Project all col-10 mt-3 mt-md-0" data-aos="fade-up">
+          <div class="card">
+            <img src="images/HMS.jpg" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h4 class="card-title">HOTAL ManageMent System</h4>
+              <span class="badge bg-secondary badge-pill">Java Language</span>
+              <span class="badge bg-secondary badge-pill">JDBC Connection</span>
+              <span class="badge bg-secondary badge-pill mb-2">Dynamic</span><br />
+              <a href="https://github.com/pavan958015/HotalManageMentSystem.git" class="link" target="_blank">View on
+                GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="post col-md-4 Project all col-10 mt-3 mt-md-0" data-aos="fade-up">
+          <div class="card">
+            <img src="images/AMS.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h4 class="card-title">AIRLINE ManageMent System</h4>
+              <span class="badge bg-secondary badge-pill">Java Language</span>
+              <span class="badge bg-secondary badge-pill">JDBC Connection</span>
+              <span class="badge bg-secondary badge-pill mb-2">Dynamic</span><br />
+              <a href="https://github.com/pavan958015/AIRLINE-MANAGEMENT-SYSTEM.git" class="link" target="_blank">View
+                on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden projects initially -->
+        <div class="post col-md-4 Project all col-10 mt-3 mt-md-0 hidden-project" data-aos="fade-up">
+          <div class="card">
+            <img src="images/TODOAPP.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h4 class="card-title">TO DO APP</h4>
+              <span class="badge bg-secondary badge-pill">Java Language</span>
+              <span class="badge bg-secondary badge-pill">IDE NetBeans</span>
+              <span class="badge bg-secondary badge-pill mb-2">File Handling</span><br />
+              <a href="https://github.com/pavan958015/TO_DO_App.git" class="link" target="_blank">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Show More Button -->
+      <div class="text-center mt-3">
+        <button id="showMoreBtn" class="btn btn-warning">Show More</button>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- portfolio section ends here -->
+
+  <!-- testimonial section starts  -->
+
+  <!-- testimonial ends here -->
+
+  <!-- blog section starts -->
+
+  <!-- blog section starts -->
+
+  <!-- contact section starts -->
+  <section class="contact py-5" id="contact">
+    <div class="heading text-center">
+      <small>Get in Touch</small>
+      <h3>Any Questions? Feel Free to Contact</h3>
+    </div>
+    <div class="row justify-content-evenly mt-5">
+      <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div class="col-11">
+            <p>Greater Noida UP.</p>
+          </div>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="col-11">
+            <p>+919580158914</p>
+          </div>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-send-fill"></i>
+          </div>
+          <div class="col-11">
+            <p>pavansoni210129@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
+        <form name="google-sheet1" class="contact-form">
+          <div class="mb-3">
+            <input name="Name" type="text" class="form-control" placeholder="Name" />
+          </div>
+          <div class="mb-3">
+            <input name="E-mail" type="email" class="form-control" placeholder="E-mail" />
+          </div>
+          <div class="mb-3">
+            <input name="Mobile" type="text" class="form-control" placeholder="Mobile No." />
+          </div>
+          <div class="mb-3">
+            <textarea name="Massege" class="form-control" placeholder="Message" rows="5"></textarea>
+          </div>
+          <button type="submit" name="Submit" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script>
+    //Google Sheet connect code
+    var scriptURL = "https://script.google.com/macros/s/AKfycbyKGziey4KlEAoceB4HkygpkQjaRgd_xDMBCP8WU2xBq_ZXZoVk21E4a9nMBMtmmP8w0Q/exec";
+    var form = document.forms['google-sheet1'];
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    });
+  </script>
+
+  <!-- contact section ends here -->
+
+  <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
+  <button type="button" class="btn btn-floating btn-lg rounded-pill" id="btn-back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- footer section starts  -->
+  <footer class="text-center text-muted py-4">
+    <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
+    <div class="link-group mt-5" data-aos="fade-up">
+      <a href="#home">Home</a>
+      <div class="vr"></div>
+      <a href="#about">About</a>
+      <div class="vr"></div>
+      <a href="#service">Service</a>
+      <div class="vr"></div>
+      <a href="#portfolio">Portfolio</a>
+      <div class="vr"></div>
+      <a href="#blog">Blog</a>
+      <div class="vr"></div>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="social-links mt-5" data-aos="fade-up">
+      <button class="rounded-pill dribble"
+        onclick="window.open('https://www.instagram.com/pavansoni210129/', '_blank')"> <i class="bi bi-instagram"></i>
+      </button>
+      <button class="rounded-pill whatsapp" onclick="window.open('https://wa.me/9580158914', '_blank')"> <i
+          class="bi bi-whatsapp"></i>
+        <button class="rounded-pill behance"
+          onclick="window.open('https://www.linkedin.com/in/pavan-soni-10b2842a2/','_blank')"> <i
+            class="bi bi-linkedin"></i>
+        </button>
+    </div>
+    <hr class="text-muted my-4" />
+
+
+  </footer>
+  <!-- footer section ends here -->
+
+  <!-- bootstrap javascript cdn link  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <!-- AOS library javascript link  -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // initializing AOS library
+    AOS.init({
+      duration: 1000,
+      offset: 50,
+    });
+  </script>
+  <!-- custom js file linking -->
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
