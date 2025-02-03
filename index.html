@@ -73,17 +73,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form name="google-sheet">
+          <form name="google-sheet2" class="contact-form">
             <div class="mb-3">
-              <label for="email" class="form-label">Gmail</label>
-              <input name="Name" type="email" class="form-control" id="email" placeholder="Enter your Gmail" required />
+              <input name="Name" type="text" class="form-control" placeholder="Name" />
             </div>
             <div class="mb-3">
-              <label for="phone" class="form-label">Phone Number</label>
-              <input name="Phone" type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
-                required />
+              <input name="E-mail" type="email" class="form-control" placeholder="E-mail" />
             </div>
-            <button type="submit" class="btn btn-primary w-100">
+            <div class="mb-3">
+              <input name="Mobile" type="text" class="form-control" placeholder="Mobile No." />
+            </div>
+            <div class="mb-3">
+              <textarea name="Massege" class="form-control" placeholder="Message" rows="5"></textarea>
+            </div>
+            <button type="submit" name="Submit" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
               Submit
             </button>
           </form>
@@ -93,8 +96,8 @@
   </div>
   <script>
     //Google Sheet connect code
-    var scriptURL = "https://script.google.com/macros/s/AKfycbzN5i7_1lU4dwVEh_8Oj1tKCfY7WIofXCzkq5nbePdmiqqwxr11goJs-MKb7RBgk14O/exec";
-    var form = document.forms['google-sheet'];
+    var scriptURL = "https://script.google.com/macros/s/AKfycbx2lqpRXk_aTGMljKXFV7ux94Z2lKZEs-u0V3rfwXMhflP3nDuc0ul4ABtlhCWtRylS/exec";
+    var form = document.forms['google-sheet2'];
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
@@ -102,6 +105,7 @@
         .catch(error => console.error('Error!', error.message))
     });
   </script>
+ 
   <!-- navbar ends here -->
 
   <!-- home section starts  -->
