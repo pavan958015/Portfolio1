@@ -1,15 +1,15 @@
-/* appling google font over the website  */
-<<<<<<< HEAD
-body{
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-}
-/* styling menu icon */
-.nav-menu{
-=======
+/* applying google font over the website */
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
+}
+
+/* styling menu icon */
+.nav-menu {
+    border: none;
+    background-color: #fff;
+    font-size: 1.5rem;
+    color: #fca61f;
 }
 
 /* Style for the toggle button */
@@ -20,27 +20,7 @@ body {
     background: transparent;
 }
 
-
-/* styling menu icon */
-.nav-menu {
->>>>>>> 16ea436 (Updated code)
-    border: none;
-    background-color: #fff;
-    font-size: 1.5rem;
-    color: #fca61f;
-}
-<<<<<<< HEAD
-/* styling navbar links  */
-.navbar-nav a{
-    color: black;
-    position: relative;
-}
-.navbar-nav a:hover{
-    color: #fca61f;
-}
-=======
-
-/* styling navbar links  */
+/* styling navbar links */
 .navbar-nav a {
     color: black;
     position: relative;
@@ -50,22 +30,18 @@ body {
     color: #fca61f;
 }
 
->>>>>>> 16ea436 (Updated code)
+/* styling contact btn */
 .c-btn {
     background-color: #3f396d;
     color: white;
     font-weight: bold;
     border: none;
     transition: background-color 0.3s ease;
-<<<<<<< HEAD
-  }
-  
-  .c-btn:hover {
-    background-color: #292655;
-  }
-  
-.navbar-nav a:after {    
-=======
+    /* Redundant contact button styles are below, but preserving for functionality if used elsewhere */
+    border: none;
+    background: #fca61f;
+    color: #fff;
+    font-size: 1.2rem;
 }
 
 .c-btn:hover {
@@ -73,7 +49,6 @@ body {
 }
 
 .navbar-nav a:after {
->>>>>>> 16ea436 (Updated code)
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -85,15 +60,6 @@ body {
     background: #fca61f;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
-<<<<<<< HEAD
-  }
-.navbar-nav a:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
-  /* styling contact btn  */
-.c-btn{
-=======
 }
 
 .navbar-nav a:hover:after {
@@ -101,26 +67,7 @@ body {
     left: 0;
 }
 
-/* styling contact btn  */
-.c-btn {
->>>>>>> 16ea436 (Updated code)
-    border: none;
-    background: #fca61f;
-    color: #fff;
-    font-size: 1.2rem;
-}
-<<<<<<< HEAD
-/* styling home section starts */
-.home{
-    background: linear-gradient(33deg, rgba(242,242,255,1) 0%, rgba(235,249,255,1) 100%);
-    padding: 30px 0px 10px 0px;
-}
-.home h2{
-    font-size: 3rem;
-    line-height: 4rem;
-}
-.c-orange{
-=======
+---
 
 /* styling home section starts */
 .home {
@@ -134,49 +81,32 @@ body {
 }
 
 .c-orange {
->>>>>>> 16ea436 (Updated code)
     color: #6f34fe;
     font-weight: 700;
     font-size: 4rem;
 }
-<<<<<<< HEAD
-.home p{
-=======
 
 .home p {
->>>>>>> 16ea436 (Updated code)
     width: fit-content;
     margin-top: 1rem;
     font-size: 1.2rem;
 }
-<<<<<<< HEAD
-.h-btn:hover{
-=======
 
 .h-btn:hover {
->>>>>>> 16ea436 (Updated code)
     background: #6f34fe;
     color: #fff;
     transform: translateY(-20px);
     transition-duration: 1s;
 }
-<<<<<<< HEAD
-.link{
-=======
 
 .link {
->>>>>>> 16ea436 (Updated code)
     text-decoration: none;
     font-size: 1.2rem;
     color: #fca61f;
     position: relative;
 }
-<<<<<<< HEAD
-.link::after{
-=======
 
 .link::after {
->>>>>>> 16ea436 (Updated code)
     content: '';
     position: absolute;
     width: 100%;
@@ -189,43 +119,24 @@ body {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
-<<<<<<< HEAD
-.link:hover{
-    color: #6f34fe;
-}
-.link:hover::after{
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-/* adding animation to home section image  */
-.home img{
-=======
 
 .link:hover {
     color: #6f34fe;
 }
 
 .link:hover::after {
+    width: 100%;
+    left: 0;
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
-/* adding animation to home section image  */
+/* adding animation to home section image */
 .home img {
->>>>>>> 16ea436 (Updated code)
     animation: floatimg 4s ease-in-out infinite;
 }
 
 @keyframes floatimg {
-<<<<<<< HEAD
-    0%{
-        transform: translateX(0);
-    }
-    50%{
-        transform: translateX(-24px);
-    }
-    100%{
-=======
     0% {
         transform: translateX(0);
     }
@@ -235,46 +146,25 @@ body {
     }
 
     100% {
->>>>>>> 16ea436 (Updated code)
         transform: translateX(0);
     }
 }
 
+---
+
 /* expertise section starts */
-<<<<<<< HEAD
-.heading small{
-=======
 .heading small {
->>>>>>> 16ea436 (Updated code)
     color: #6f34fe;
     font-size: 1.5rem;
     font-weight: 600;
 }
-<<<<<<< HEAD
-.heading h3{
-=======
 
 .heading h3 {
->>>>>>> 16ea436 (Updated code)
     margin-top: 0.5rem;
     color: #3f396d;
     font-size: 2.5rem;
     font-weight: 700;
 }
-<<<<<<< HEAD
-.expertise h4{
-    color: #3f396d;
-    font-weight: 700;
-}
-.expertise a{
-    text-decoration: none;
-    color: #fca61f;
-}
-.expertise a:hover{
-    color: #6f34fe;
-}
-.expertise .service-card{
-=======
 
 .expertise h4 {
     color: #3f396d;
@@ -291,15 +181,11 @@ body {
 }
 
 .expertise .service-card {
->>>>>>> 16ea436 (Updated code)
     text-align: center;
     padding: 15px 15px;
     border-radius: 0.7rem;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 16ea436 (Updated code)
 .content-box {
     border: 2px solid #ddd;
     border-radius: 10px;
@@ -308,78 +194,6 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     font-family: Arial, sans-serif;
-<<<<<<< HEAD
-  }
-  
-  .content-box h4 {
-    margin-bottom: 10px;
-  }
-  
-  .content-box .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .content-box .row h6 {
-    min-width: 120px; /* Ensures alignment for headings */
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .content-box .row span {
-    font-size: 1em;
-    color: #333;
-  }
-  
-  .content-box .link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .content-box .link:hover {
-    text-decoration: underline;
-  }
-  
-  .content-box {
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    background: #f9f9f9;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .content-box h4 {
-    margin-bottom: 10px;
-  }
-  
-  .content-box p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .content-box .link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .content-box .link:hover {
-    text-decoration: underline;
-  }
-  
-
-  .content-box {
-=======
 }
 
 .content-box h4 {
@@ -405,96 +219,6 @@ body {
     color: #333;
 }
 
-.content-box .link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.content-box .link:hover {
-    text-decoration: underline;
-}
-
-.content-box {
->>>>>>> 16ea436 (Updated code)
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    background: #f9f9f9;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    font-family: Arial, sans-serif;
-<<<<<<< HEAD
-  }
-  
-  .content-box h4 {
-    margin-bottom: 10px;
-  }
-  
-  .content-box p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .content-box .link {
-=======
-}
-
-.content-box h4 {
-    margin-bottom: 10px;
-}
-
-.content-box p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.content-box .link {
->>>>>>> 16ea436 (Updated code)
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-<<<<<<< HEAD
-  }
-  
-  .content-box .link:hover {
-    text-decoration: underline;
-  }
-  
-
-/* skill section starts */
-.skill{
-    background-color: rgb(234, 234, 249);
-}
-.progress-card{
-=======
-}
-
-.content-box .link:hover {
-    text-decoration: underline;
-}
-
-
-.content-box {
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    background: #f9f9f9;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    font-family: Arial, sans-serif;
-}
-
-.content-box h4 {
-    margin-bottom: 10px;
-}
-
 .content-box p {
     font-size: 1em;
     color: #555;
@@ -513,6 +237,7 @@ body {
     text-decoration: underline;
 }
 
+---
 
 /* skill section starts */
 .skill {
@@ -520,19 +245,11 @@ body {
 }
 
 .progress-card {
->>>>>>> 16ea436 (Updated code)
     padding: 12% 10% 10% 15%;
     background-color: #fff;
     text-align: center;
     border-radius: 10%;
 }
-<<<<<<< HEAD
-.progress-card:hover{
-    transform: scale(1.1,1.1);
-    transition-duration: 0.6s;
-}
-.circular-progress{
-=======
 
 .progress-card:hover {
     transform: scale(1.1, 1.1);
@@ -540,7 +257,6 @@ body {
 }
 
 .circular-progress {
->>>>>>> 16ea436 (Updated code)
     position: relative;
     height: 130px;
     width: 130px;
@@ -550,12 +266,8 @@ body {
     align-items: center;
     justify-content: center;
 }
-<<<<<<< HEAD
-.circular-progress::before{
-=======
 
 .circular-progress::before {
->>>>>>> 16ea436 (Updated code)
     content: "";
     position: absolute;
     height: 120px;
@@ -563,64 +275,12 @@ body {
     border-radius: 50%;
     background-color: #fff;
 }
-<<<<<<< HEAD
-.progress-value{
-=======
 
 .progress-value {
->>>>>>> 16ea436 (Updated code)
     position: relative;
     font-size: 1.5rem;
     font-weight: 600;
 }
-<<<<<<< HEAD
-.html-progress{
-    color: #fca61f;
-}
-.javascript-progress{
-    color: #6f34fe;
-}
-.php-progress{
-    color: #20c997;
-}
-.reactjs-progress{
-    color: #3f396d;
-}
-.text{
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-.heading p{
-    font-size: 1.3rem;
-}
-
-/* portfolio section starts */
-#myBtnContainer{
-    margin-bottom: 45px;
-}
-#myBtnContainer button{
-  border: none;
-  color: black;
-  background: transparent;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;   
-  display: inline-block;
-  margin: 0 25px;
-}
-#myBtnContainer button:hover{
-    color: #fca61f;
-}
-
-#myBtnContainer button:focus{
-    outline: none;
-}
-.post .content h4{
-    font-size: 1rem;
-    font-weight: 700;
-}
-.post .card{
-=======
 
 .html-progress {
     color: #fca61f;
@@ -647,6 +307,7 @@ body {
     font-size: 1.3rem;
 }
 
+---
 
 /* portfolio section starts */
 #myBtnContainer {
@@ -678,100 +339,84 @@ body {
 }
 
 .post .card {
->>>>>>> 16ea436 (Updated code)
     border: none;
 }
 
 .hidden-project {
     display: none;
 }
-<<<<<<< HEAD
-=======
 
-/* Internship Section start*/
+---
 
 /* Internship Section */
 #internship {
-  padding: 60px 0;
-  background: #f9f9f9;
+    padding: 60px 0;
+    background: #f9f9f9;
 }
 
 #internship .container {
-  max-width: 1200px;
-  margin: auto;
+    max-width: 1200px;
+    margin: auto;
 }
 
 #internship h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #333;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
 }
 
 /* Cards layout inside internship */
 #internship .internship-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 #internship .card {
-  flex: 1 1 45%;
-  max-width: 45%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: 0.3s ease-in-out;
+    flex: 1 1 45%;
+    max-width: 45%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
 }
 
 /* Hover effect only for internship cards */
 #internship .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Headings */
 #internship .card h3 {
-  color: #6c63ff;
+    color: #6c63ff;
 }
 
 /* Links */
 #internship .card a {
-  color: #6c63ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 #internship .card a:hover {
-  color: #333;
-  text-decoration: underline;
+    color: #333;
+    text-decoration: underline;
 }
 
 /* Lists */
 #internship .card ul {
-  margin: 10px 0 0 20px;
+    margin: 10px 0 0 20px;
 }
 
+---
 
-
-
-
-
-
->>>>>>> 16ea436 (Updated code)
-/* testimonial section starts */
-
-/* blog section starts */
-
-/* styling modal group  */
-<<<<<<< HEAD
-.btn-c{
-=======
+/* styling modal group */
 .btn-c {
->>>>>>> 16ea436 (Updated code)
     margin-left: 94%;
     background-color: transparent;
     border: none;
@@ -779,35 +424,6 @@ body {
     font-size: 2rem;
     margin-top: -3%;
 }
-<<<<<<< HEAD
-.btn-c i{
-    color: #fca61f;
-}
-.modal-body .content span{
-    font-size: 1rem;
-}
-.modal-body .content small{
-    font-size: 1rem;
-    color: #6f34fe;
-}
-/* contact section starts */
-.contact{
-    background-color: #f3f3f3;
-}
-.contact-details i{
-    font-size: 1.5rem;
-    color: #fca61f;
-}
-.contact-details p{
-    font-size: 1.2rem;
-    margin-left: 1rem;
-}
-.contact-form .form-control:focus{
-    box-shadow: none;
-    border: 1px solid #fca61f;
-}
-.contact-form .form-control{
-=======
 
 .btn-c i {
     color: #fca61f;
@@ -821,6 +437,8 @@ body {
     font-size: 1rem;
     color: #6f34fe;
 }
+
+---
 
 /* contact section starts */
 .contact {
@@ -843,25 +461,18 @@ body {
 }
 
 .contact-form .form-control {
->>>>>>> 16ea436 (Updated code)
     padding: 10px 10px;
     width: 80%;
 }
 
-/* footer section starts */
-<<<<<<< HEAD
-footer{
-    background-color: #211e39;
-}
+---
 
-footer .link-group a{
-=======
+/* footer section starts */
 footer {
     background-color: #211e39;
 }
 
 footer .link-group a {
->>>>>>> 16ea436 (Updated code)
     margin-left: 10px;
     margin-right: 10px;
     text-decoration: none;
@@ -869,57 +480,28 @@ footer .link-group a {
     font-size: 1.1rem;
     margin-top: 1rem;
 }
-<<<<<<< HEAD
-footer .link-group a:hover{
-    color: #fca61f;
-}
-.social-links button{
-=======
 
 footer .link-group a:hover {
     color: #fca61f;
 }
 
 .social-links button {
->>>>>>> 16ea436 (Updated code)
     border: none;
     margin-right: 1rem;
     font-size: 1.2rem;
     background-color: #fff;
     padding: 14px 15px 10px 15px;
 }
-<<<<<<< HEAD
-.social-links .dribble{
-    color: #f33a7e;
-}
-.social-links button:hover{
-=======
-
-.social-links .dribble {
-    color: #f33a7e;
-}
 
 .social-links button:hover {
->>>>>>> 16ea436 (Updated code)
     color: #fff;
     transform: translateY(-20px);
     transition-duration: 1s;
 }
-<<<<<<< HEAD
-.social-links .dribble:hover{
-    background-color: #f33a7e;
+
+.social-links .dribble {
+    color: #f33a7e;
 }
-.social-links .whatsapp{
-    color: #25D366;
-}
-.social-links .whatsapp:hover{
-    background-color: #25D366;
-}
-.social-links .behance{
-    color: #255afc;
-}
-.social-links .behance:hover{
-=======
 
 .social-links .dribble:hover {
     background-color: #f33a7e;
@@ -938,7 +520,6 @@ footer .link-group a:hover {
 }
 
 .social-links .behance:hover {
->>>>>>> 16ea436 (Updated code)
     background-color: #255afc;
 }
 
@@ -952,8 +533,4 @@ footer .link-group a:hover {
     background-color: #fca61f;
     color: #fff;
     animation: pulse 3s infinite;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 16ea436 (Updated code)
