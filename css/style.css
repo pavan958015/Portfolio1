@@ -480,7 +480,15 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+#problem-solving .card {
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
 
+#problem-solving .card:hover {
+    border: 2px solid #6f34fe;
+    box-shadow: 0 0 20px rgba(111, 52, 254, 0.5);
+}
 ---
 
 /* footer section starts */
