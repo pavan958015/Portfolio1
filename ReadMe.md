@@ -47,6 +47,7 @@ Usage
 Home Section: Brief introduction and links to social profiles.
 About Section: Overview of your skills, experience, and education.
 Projects Section: Showcases your projects with live demo links.
+Problem Solving Section: Showcases your Problem solving skills with links.
 Contact Section: Contact form and email/social media links.
 Customization
 HTML:
@@ -57,15 +58,3 @@ CSS:
 
 Adjust colors, fonts, and layouts in styles.css to match your preferences.
 JavaScript:
-
-Add or modify functionality in script.js.
-Screenshots
-Desktop View
-
-Mobile View
-
-Contributing
-Contributions are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
-
-License
-This project is licensed under the MIT License.
