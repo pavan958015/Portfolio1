@@ -444,8 +444,40 @@ body {
     flex-grow: 1;
 }
 
-.post .card-body .link {
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.project-tags .badge {
+    background-color: rgba(99, 102, 241, 0.08) !important;
+    color: var(--icon-color) !important;
+    border: 1px solid rgba(99, 102, 241, 0.2) !important;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.post .card:hover .project-tags .badge {
+    background-color: var(--icon-color) !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
     margin-top: auto;
+    padding-top: 15px;
 }
 
 .post .card-title {
@@ -454,14 +486,6 @@ body {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     transition: color 0.4s ease;
-}
-
-.post .badge {
-    background-color: rgba(99, 102, 241, 0.1) !important;
-    color: var(--icon-color) !important;
-    border: 1px solid rgba(99, 102, 241, 0.25);
-    font-weight: 500;
-    margin: 2px;
 }
 
 .hidden-project {
