@@ -1,60 +1,98 @@
-About the Project
-This is a personal portfolio website created using HTML, CSS, and JavaScript. The portfolio showcases your projects, skills, experience, and contact details in a modern and responsive design.
+# Personal Portfolio - Pavan Soni
 
-Features: 
-Responsive design for all devices
-Interactive animations and transitions
-Sections for About, Skills, Projects, and Contact
-Dynamic project section populated with JavaScript
-Smooth scrolling for easy navigation
+Welcome to my personal portfolio website! This modern, premium, glassmorphic portfolio showcases my skills, experience, projects, coding profiles, and contact details in a fully responsive layout.
 
-Technologies Used: 
-     HTML: Structure of the website
-     CSS: Styling and layout
-     JavaScript: Interactivity and functionality
-Getting Started
-Prerequisites
-To run this project locally, you need a code editor (e.g., VS Code) and a modern web browser.
+Live Site: [pavan958015.github.io/Portfolio1/](https://pavan958015.github.io/Portfolio1/)
 
-Installation
-Clone the repository:
-bash
-Copy code
-git clone  
-Navigate to the project directory:
-bash
-Copy code
-cd portfolio-website  
-Open the index.html file in your browser to view the site:
-csharp
-Copy code
-Right-click on the `index.html` file and select "Open with Browser".  
-Folder Structure
-graphql
-Copy code
+---
+
+## ✨ Features
+
+- 🌓 **Dynamic Theme Switcher**: Full Light Mode & Dark Mode toggling, with user preferences persisted using HTML5 `localStorage`.
+- 🔮 **Glassmorphism Design**: High-end translucent cards (`backdrop-filter`) with subtle glowing borders and micro-interactions on hover.
+- 🛠️ **Badges-Based Skills Grid**: Tech skills displayed with qualitative levels (e.g., Expert, Advanced) and interactive sub-tech tag badges instead of numerical percentage bars.
+- 📐 **Equal Height Layouts**: Responsive grids engineered with Flexbox to ensure cards in the Expertise, Projects, and Internships sections maintain consistent heights.
+- ✉️ **Google Sheets Form Integration**: Fully functional contact form and modal fields that post entries directly to Google Sheets using Apps Script.
+- 📱 **Fully Responsive**: Optimized for seamless viewing on all device types (mobile, tablet, desktop).
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5**: Structured semantic markup.
+- **CSS3 (Custom Properties)**: Vanilla CSS variable design system, transitions, grid/flex layouts, and glassmorphic designs.
+- **Bootstrap 5**: Responsive layout grids and modal components.
+- **JavaScript (ES6+)**: Custom theme toggle controller, scroll triggers, and DOM manipulation.
+- **AOS (Animate On Scroll) Library**: Dynamic fade-in animations as visitors scroll down.
+
+---
+
+## 📁 Repository Structure
+
+```graphql
 portfolio-website/  
-├── index.html          # Main HTML file  
+├── index.html              # Main page markup
 ├── css/  
-│   └── styles.css      # CSS file for styling  
+│   └── style.css           # Premium theme variables & styles
 ├── js/  
-│   └── script.js       # JavaScript file for interactivity  
-├── assets/  
-│   ├── images/         # Images used in the portfolio  
-│   ├── icons/          # Icons and logos  
-│   └── fonts/          # Custom fonts  
-└── README.md           # Project documentation  
-Usage
-Home Section: Brief introduction and links to social profiles.
-About Section: Overview of your skills, experience, and education.
-Projects Section: Showcases your projects with live demo links.
-Problem Solving Section: Showcases your Problem solving skills with links.
-Contact Section: Contact form and email/social media links.
-Customization
-HTML:
+│   ├── script.js           # Theme toggle & interaction script
+│   └── script1.js          # Google Sheets contact form handler
+├── images/                 # Optimized project icons & assets
+├── PDFs/  
+│   └── Java_Full_Stack_Developer.pdf   # Resume document
+└── ReadMe.md               # Project documentation  
+```
 
-Update the content in index.html to reflect your information.
-Modify the project details in the Projects section.
-CSS:
+---
 
-Adjust colors, fonts, and layouts in styles.css to match your preferences.
-JavaScript:
+## 🚀 Getting Started
+
+### Prerequisites
+To run this project locally, you only need:
+- A modern web browser (e.g., Google Chrome, Firefox, Safari).
+- A code editor (e.g., VS Code) for modifications.
+
+### Running Locally
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/pavan958015/Portfolio1.git
+   ```
+2. Navigate into the project folder:
+   ```bash
+   cd Portfolio1
+   ```
+3. Open `index.html` in your browser. (Or use a local development server like VS Code "Live Server").
+
+---
+
+## 🎨 Customization & Maintenance
+
+### Theme Modifications
+The stylesheet is built entirely on custom variables. You can easily tweak the color scheme under `:root` and `body.light-theme` inside [style.css](file:///c:/Users/Pavan Soni/Downloads/Portfolio1-main (2)/Portfolio1-main/css/style.css):
+```css
+:root {
+    --bg-primary: #090816;
+    --icon-color: #6366f1;
+    /* ... add your custom colors here ... */
+}
+```
+
+### Adding New Project Cards
+To add a new project, edit [index.html](file:///c:/Users/Pavan Soni/Downloads/Portfolio1-main (2)/Portfolio1-main/index.html) and add a column item in the `#portfolio` section:
+```html
+<div class="post col-md-4 web website all col-10 mt-3 mt-md-0" data-aos="fade-up">
+  <div class="card">
+    <img src="images/your-thumbnail.webp" class="card-img-top" alt="..." />
+    <div class="card-body text-center">
+      <h4 class="card-title">Project Title</h4>
+      <div class="project-tags">
+        <span class="badge">Tag 1</span>
+        <span class="badge">Tag 2</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="link" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
