@@ -1,74 +1,37 @@
-// HTML/CSS Progress Circular Bar
-let htmlProgress = document.querySelector(".html-css"),
-  htmlValue = document.querySelector(".html-progress");
+// Light/Dark Theme Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
 
-let htmlStartValue = 0,
-  htmlEndValue = 90,
-  htmlSpeed = 30;
-
-let progressHtml = setInterval(() => {
-  htmlStartValue++;
-  htmlValue.textContent = `${htmlStartValue}%`;
-  htmlProgress.style.background = `conic-gradient(#fca61f ${htmlStartValue * 3.6}deg, #ededed 0deg)`;
-
-  if (htmlStartValue === htmlEndValue) {
-    clearInterval(progressHtml);
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    if (themeIcon) {
+      themeIcon.classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+    }
   }
-}, htmlSpeed);
 
-// JavaScript Progress Circular Bar
-let javascriptProgress = document.querySelector(".javascript"),
-  javascriptValue = document.querySelector(".javascript-progress");
-
-let javascriptStartValue = 0,
-  javascriptEndValue = 75,
-  jsSpeed = 30;
-
-let progressJs = setInterval(() => {
-  javascriptStartValue++;
-  javascriptValue.textContent = `${javascriptStartValue}%`;
-  javascriptProgress.style.background = `conic-gradient(#7d2ae8 ${javascriptStartValue * 3.6}deg, #ededed 0deg)`;
-
-  if (javascriptStartValue === javascriptEndValue) {
-    clearInterval(progressJs);
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
+      if (document.body.classList.contains("light-theme")) {
+        if (themeIcon) {
+          themeIcon.classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+        }
+        localStorage.setItem("portfolio-theme", "light");
+      } else {
+        if (themeIcon) {
+          themeIcon.classList.replace("bi-sun-fill", "bi-moon-stars-fill");
+        }
+        localStorage.setItem("portfolio-theme", "dark");
+      }
+    });
   }
-}, jsSpeed);
+});
 
-// PHP Progress Circular Bar
-let phpProgress = document.querySelector(".php"),
-  phpValue = document.querySelector(".php-progress");
 
-let phpStartValue = 0,
-  phpEndValue = 80,
-  phpSpeed = 30;
 
-let progressPhp = setInterval(() => {
-  phpStartValue++;
-  phpValue.textContent = `${phpStartValue}%`;
-  phpProgress.style.background = `conic-gradient(#20c997 ${phpStartValue * 3.6}deg, #ededed 0deg)`;
-
-  if (phpStartValue === phpEndValue) {
-    clearInterval(progressPhp);
-  }
-}, phpSpeed);
-
-// ReactJS Progress Circular Bar
-let reactProgress = document.querySelector(".reactjs"),
-  reactValue = document.querySelector(".reactjs-progress");
-
-let reactStartValue = 0,
-  reactEndValue = 30,
-  reactSpeed = 30;
-
-let progressReact = setInterval(() => {
-  reactStartValue++;
-  reactValue.textContent = `${reactStartValue}%`;
-  reactProgress.style.background = `conic-gradient(#3f396d ${reactStartValue * 3.6}deg, #ededed 0deg)`;
-
-  if (reactStartValue === reactEndValue) {
-    clearInterval(progressReact);
-  }
-}, reactSpeed);
 
 // Filter Using JavaScript (with jQuery)
 $(document).ready(function () {

@@ -17,7 +17,7 @@
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
   <!-- bootstrap icon cdn link  -->
@@ -62,12 +62,17 @@
           </li>
         </ul>
       </div>
-      <!-- Form Button (Open in new tab) -->
-      <a class="c-btn ms-2 py-2 px-4 rounded-pill d-none d-md-block"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeNa0LnX-N4aj6gsiOSfgm73d1Pd8shLJoNvGIsUJC8b5rs4g/viewform?usp=dialog"
-        target="_blank">
-        Contact
-      </a>
+      <!-- Theme toggle and contact button -->
+      <div class="d-flex align-items-center">
+        <button id="theme-toggle" class="btn theme-btn py-2 px-2 ms-2 me-2" style="border: none; background: transparent; font-size: 1.3rem;">
+          <i class="bi bi-moon-stars-fill" id="theme-icon" style="color: var(--icon-color);"></i>
+        </button>
+        <a class="c-btn ms-2 py-2 px-4 rounded-pill d-none d-md-block"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeNa0LnX-N4aj6gsiOSfgm73d1Pd8shLJoNvGIsUJC8b5rs4g/viewform?usp=dialog"
+          target="_blank">
+          Contact
+        </a>
+      </div>
     </div>
   </nav>
   <!-- Navbar Ends -->
@@ -207,68 +212,88 @@
 
   <!-- skill section starts -->
   <section class="skill mt-5 py-5" id="about">
-    <div class="row justify-content-evenly">
-      <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
-        <div class="row justify-content-evenly">
-          <div class="col-10 col-md-6">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress html-css">
-                <span class="progress-value html-progress">0%</span>
+    <div class="container py-4">
+      <div class="row justify-content-evenly align-items-center">
+        <!-- Left Side: Skill Cards (No Percentages) -->
+        <div class="col-10 col-md-5" data-aos="slide-right">
+          
+          <div class="skill-card-new glass-card mb-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-cup-hot-fill text-warning" style="font-size: 2rem;"></i>
+                <div>
+                  <h4 class="fw-bold text-white mb-0" style="font-size: 1.25rem;">Java</h4>
+                  <span class="text-warning fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.05em;">Expert Level</span>
+                </div>
               </div>
-              <br />
-              <span class="text">Java</span>
+            </div>
+            <div class="skill-tags d-flex flex-wrap gap-2">
+              <span class="badge skill-tag">Core Java</span>
+              <span class="badge skill-tag">OOPs</span>
+              <span class="badge skill-tag">Collections</span>
+              <span class="badge skill-tag">Multithreading</span>
+              <span class="badge skill-tag">File Handling</span>
             </div>
           </div>
-          <div class="col-10 col-md-6 mt-4 mt-md-0">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress javascript">
-                <span class="progress-value javascript-progress">0%</span>
-              </div>
-              <br />
-              <span class="text">Backend in java</span>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-evenly mt-4">
-          <div class="col-10 col-md-6">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress php">
-                <span class="progress-value php-progress">0%</span>
-              </div>
-              <br />
-              <span class="text">SpringBoot</span>
-            </div>
-          </div>
-          <div class="col-10 col-md-6 mt-4 mt-md-0">
-            <div class="progress-card ms-3  ms-md-0">
-              <div class="circular-progress reactjs">
-                <span class="progress-value reactjs-progress">0%</span>
-              </div>
-              <br>
-              <span class="text">ReactJS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
-        <div class="heading mt-5 mt-md-3">
-          <small>My Skills</small>
-          <h3>Beautiful & Unique Digital Experiences</h3>
-          <p class="text-muted">
-            Delivering Scalable & Efficient Java Solutions
-            Expert in Core Java, object-oriented programming,
-            and multi-threading, with experience in projects like PDF generator GUI calculators, and to-do apps.
-            Skilled in building robust backend systems and dynamic user interfaces for innovative digital experiences.
-          </p>
-          <p class="text-muted">
-            Quia voluptas sit aspernatur aut odit aut fugit, sed ruiano
-            consequntar magni dolores.
-          </p>
-          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
 
-            <a href="PDFs/Pavan Resume Kr.pdf" download="SampleCV" style="text-decoration: none;color: #fff;">Download
-              CV</a>
-          </button>
+          <div class="skill-card-new glass-card mb-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-server text-info" style="font-size: 2rem;"></i>
+                <div>
+                  <h4 class="fw-bold text-white mb-0" style="font-size: 1.25rem;">Backend in Java</h4>
+                  <span class="text-info fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.05em;">Advanced Level</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-tags d-flex flex-wrap gap-2">
+              <span class="badge skill-tag">JDBC Connection</span>
+              <span class="badge skill-tag">SQL Databases</span>
+              <span class="badge skill-tag">Hibernate</span>
+              <span class="badge skill-tag">RESTful APIs</span>
+            </div>
+          </div>
+
+          <div class="skill-card-new glass-card mb-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-cpu-fill text-success" style="font-size: 2rem;"></i>
+                <div>
+                  <h4 class="fw-bold text-white mb-0" style="font-size: 1.25rem;">SpringBoot</h4>
+                  <span class="text-success fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.05em;">Advanced Level</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-tags d-flex flex-wrap gap-2">
+              <span class="badge skill-tag">Spring MVC</span>
+              <span class="badge skill-tag">Spring Security</span>
+              <span class="badge skill-tag">Spring Data JPA</span>
+              <span class="badge skill-tag">Maven</span>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!-- Right Side: Skills Details -->
+        <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
+          <div class="heading mt-5 mt-md-3">
+            <small class="text-uppercase tracking-wider">My Skills</small>
+            <h3 class="text-white my-3">Beautiful & Unique Digital Experiences</h3>
+            <p class="text-muted leading-relaxed">
+              Delivering Scalable & Efficient Java Solutions.
+              Expert in Core Java, object-oriented programming,
+              and multi-threading, with experience in projects like PDF generator GUI calculators, and to-do apps.
+              Skilled in building robust backend systems and dynamic user interfaces for innovative digital experiences.
+            </p>
+            <p class="text-muted leading-relaxed">
+              Committed to continuous learning and applying industry best practices in software design and database optimization.
+            </p>
+            <a href="PDFs/Pavan Resume Kr.pdf" download="SampleCV" class="c-btn h-btn mt-4 py-3 px-5 rounded-pill d-inline-block" style="text-decoration: none; color: #fff;">
+              Download CV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -388,8 +413,6 @@
         <button id="showMoreBtn" class="btn btn-warning">Show More</button>
       </div>
     </div>
-    </div>
-    </div>
   </section>
   <!-- portfolio section ends here -->
 
@@ -449,40 +472,79 @@
 
     <div class="row justify-content-center mt-5">
 
-
       <!-- Codolio -->
-      <div class="col-md-3 col-10 mb-4">
-        <div class="card text-center p-3">
-          <h4>Codolio</h4>
-          <p>All coding stats in one place</p>
-          <a href="https://codolio.com/profile/Pavan9580" target="_blank" class="btn btn-primary">View Profile</a>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="profile-card glass-card text-center p-4 h-100 position-relative overflow-hidden d-flex flex-column justify-content-between">
+          <div class="profile-card-glow profile-glow-codolio"></div>
+          <div>
+            <div class="profile-icon-wrapper mb-3 d-inline-flex align-items-center justify-content-center" style="background: rgba(99, 102, 241, 0.1); width: 60px; height: 60px; border-radius: 50%;">
+              <i class="bi bi-diagram-3-fill text-indigo" style="font-size: 1.8rem; color: #6366f1;"></i>
+            </div>
+            <h4 class="fw-bold text-white mb-2">Codolio</h4>
+            <p class="text-secondary mb-4" style="font-size: 0.95rem;">All coding statistics and progress aggregated in one place.</p>
+          </div>
+          <div>
+            <a href="https://codolio.com/profile/Pavan9580" target="_blank" class="profile-card-link fw-semibold">
+              View Profile <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- LeetCode -->
-      <div class="col-md-3 col-10 mb-4">
-        <div class="card text-center p-3">
-          <h4>LeetCode</h4>
-          <p>Solved DSA problems & contests</p>
-          <a href="https://leetcode.com/u/pavan9580/" target="_blank" class="btn btn-warning">View Profile</a>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="profile-card glass-card text-center p-4 h-100 position-relative overflow-hidden d-flex flex-column justify-content-between">
+          <div class="profile-card-glow profile-glow-leetcode"></div>
+          <div>
+            <div class="profile-icon-wrapper mb-3 d-inline-flex align-items-center justify-content-center" style="background: rgba(253, 186, 116, 0.1); width: 60px; height: 60px; border-radius: 50%;">
+              <i class="bi bi-code-slash" style="font-size: 1.8rem; color: #fca61f;"></i>
+            </div>
+            <h4 class="fw-bold text-white mb-2">LeetCode</h4>
+            <p class="text-secondary mb-4" style="font-size: 0.95rem;">Solved complex DSA problems and participated in coding contests.</p>
+          </div>
+          <div>
+            <a href="https://leetcode.com/u/pavan9580/" target="_blank" class="profile-card-link fw-semibold text-warning">
+              View Profile <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- GeeksforGeeks -->
-      <div class="col-md-3 col-10 mb-4">
-        <div class="card text-center p-3">
-          <h4>GeeksforGeeks</h4>
-          <p>DSA practice & articles</p>
-          <a href="https://www.geeksforgeeks.org/user/pavansoni210129" target="_blank" class="btn btn-success">View Profile</a>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="profile-card glass-card text-center p-4 h-100 position-relative overflow-hidden d-flex flex-column justify-content-between">
+          <div class="profile-card-glow profile-glow-gfg"></div>
+          <div>
+            <div class="profile-icon-wrapper mb-3 d-inline-flex align-items-center justify-content-center" style="background: rgba(34, 197, 94, 0.1); width: 60px; height: 60px; border-radius: 50%;">
+              <i class="bi bi-award-fill" style="font-size: 1.8rem; color: #22c55e;"></i>
+            </div>
+            <h4 class="fw-bold text-white mb-2">GeeksforGeeks</h4>
+            <p class="text-secondary mb-4" style="font-size: 0.95rem;">Practiced algorithms, read technical articles, and solved interview sheets.</p>
+          </div>
+          <div>
+            <a href="https://www.geeksforgeeks.org/user/pavansoni210129" target="_blank" class="profile-card-link fw-semibold text-success">
+              View Profile <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- CodeChef -->
-      <div class="col-md-3 col-10 mb-4">
-        <div class="card text-center p-3">
-          <h4>CodeChef</h4>
-          <p>Competitive programming contests</p>
-          <a href="https://www.codechef.com/users/pavan9580" target="_blank" class="btn btn-danger">View Profile</a>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="profile-card glass-card text-center p-4 h-100 position-relative overflow-hidden d-flex flex-column justify-content-between">
+          <div class="profile-card-glow profile-glow-codechef"></div>
+          <div>
+            <div class="profile-icon-wrapper mb-3 d-inline-flex align-items-center justify-content-center" style="background: rgba(239, 68, 68, 0.1); width: 60px; height: 60px; border-radius: 50%;">
+              <i class="bi bi-lightning-charge-fill" style="font-size: 1.8rem; color: #ef4444;"></i>
+            </div>
+            <h4 class="fw-bold text-white mb-2">CodeChef</h4>
+            <p class="text-secondary mb-4" style="font-size: 0.95rem;">Participated in competitive programming challenges and monthly contests.</p>
+          </div>
+          <div>
+            <a href="https://www.codechef.com/users/pavan9580" target="_blank" class="profile-card-link fw-semibold text-danger">
+              View Profile <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -574,12 +636,13 @@
       <button class="rounded-pill dribble"
         onclick="window.open('https://www.instagram.com/pavansoni210129/', '_blank')"> <i class="bi bi-instagram"></i>
       </button>
-      <button class="rounded-pill whatsapp" onclick="window.open('https://wa.me/9580158914', '_blank')"> <i
-          class="bi bi-whatsapp"></i>
-        <button class="rounded-pill behance"
-          onclick="window.open('https://www.linkedin.com/in/pavan-soni-10b2842a2/','_blank')"> <i
-            class="bi bi-linkedin"></i>
-        </button>
+      <button class="rounded-pill whatsapp" onclick="window.open('https://wa.me/9580158914', '_blank')">
+        <i class="bi bi-whatsapp"></i>
+      </button>
+      <button class="rounded-pill behance"
+        onclick="window.open('https://www.linkedin.com/in/pavan-soni-10b2842a2/','_blank')">
+        <i class="bi bi-linkedin"></i>
+      </button>
     </div>
     <hr class="text-muted my-4" />
 
@@ -603,6 +666,7 @@
   </script>
   <!-- custom js file linking -->
   <script src="js/script.js"></script>
+  <script src="js/script1.js"></script>
 
 </body>
 
