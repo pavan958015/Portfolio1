@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Stats Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body onload="init()">
+
+    <div class="glow-orb"></div>
+    <div class="glow-orb secondary"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="icon">⚡</span>
+                <h1>LeetCode Stats</h1>
+            </div>
+            <p class="subtitle">Query and showcase live LeetCode stats dynamically</p>
+        </header>
+
+        <!-- Search Card -->
+        <section class="glass-card search-card">
+            <h2>Enter LeetCode Handle</h2>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-icon">👤</span>
+                    <input type="text" id="leetcodeUsername" placeholder="e.g. pavan958015" onkeypress="handleKeyPress(event)">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="fetchStats()">
+                <span>Fetch Statistics</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Querying LeetCode GraphQL node...</p>
+        </div>
+
+        <!-- Dashboard Result Cards -->
+        <div id="dashboard-results" style="display: none;">
+            
+            <!-- Global Stats Overview -->
+            <div class="glass-card overview-card">
+                <div class="overview-header">
+                    <div class="avatar-icon" id="userAvatar">U</div>
+                    <div>
+                        <h2 id="displayUsername" class="user-title">User</h2>
+                        <div class="badge-group">
+                            <span class="badge" id="globalRanking">Ranking: --</span>
+                            <span class="badge" id="contributionPoints">Reputation: --</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solved Breakdown (3-column metrics) -->
+            <div class="glass-card progress-card">
+                <h3>Solved Breakdown</h3>
+                <div class="progress-container">
+                    
+                    <!-- Easy -->
+                    <div class="progress-item easy">
+                        <div class="ring-wrapper">
+                            <svg class="progress-ring" width="100" height="100">
+                                <circle class="progress-ring-bg" stroke="#1e293b" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                                <circle id="easyRing" class="progress-ring-bar" stroke="#10b981" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                            </svg>
+                            <div class="ring-text">
+                                <span class="solved-count" id="easySolved">0</span>
+                                <span class="total-count" id="easyTotal">/0</span>
+                            </div>
+                        </div>
+                        <span class="diff-label">Easy</span>
+                    </div>
+
+                    <!-- Medium -->
+                    <div class="progress-item medium">
+                        <div class="ring-wrapper">
+                            <svg class="progress-ring" width="100" height="100">
+                                <circle class="progress-ring-bg" stroke="#1e293b" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                                <circle id="mediumRing" class="progress-ring-bar" stroke="#f59e0b" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                            </svg>
+                            <div class="ring-text">
+                                <span class="solved-count" id="mediumSolved">0</span>
+                                <span class="total-count" id="mediumTotal">/0</span>
+                            </div>
+                        </div>
+                        <span class="diff-label">Medium</span>
+                    </div>
+
+                    <!-- Hard -->
+                    <div class="progress-item hard">
+                        <div class="ring-wrapper">
+                            <svg class="progress-ring" width="100" height="100">
+                                <circle class="progress-ring-bg" stroke="#1e293b" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                                <circle id="hardRing" class="progress-ring-bar" stroke="#ef4444" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                            </svg>
+                            <div class="ring-text">
+                                <span class="solved-count" id="hardSolved">0</span>
+                                <span class="total-count" id="hardTotal">/0</span>
+                            </div>
+                        </div>
+                        <span class="diff-label">Hard</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Overall Total Metric -->
+            <div class="glass-card total-solved-card">
+                <h3>Overall Progress</h3>
+                <div class="bar-wrapper">
+                    <div class="bar-header">
+                        <span id="allSolvedPercent">0% Solved</span>
+                        <span id="allSolvedRatio">0/0</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div id="allProgressBar" class="bar-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function init() {
+            console.log("LeetCode Dashboard Active.");
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                fetchStats();
+            }
+        }
+
+        async function fetchStats() {
+            const usernameInput = document.getElementById('leetcodeUsername');
+            const username = usernameInput.value.trim();
+            const loader = document.getElementById('loader');
+            const results = document.getElementById('dashboard-results');
+
+            if (!username) {
+                alert("Please enter a LeetCode username.");
+                return;
+            }
+
+            loader.style.display = 'flex';
+            results.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/stats', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: username })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateUI(data);
+                } else {
+                    const error = await response.json();
+                    alert(error.detail || "Failed to fetch stats. Verify username exists.");
+                }
+            } catch (err) {
+                console.error("Fetch stats error:", err);
+                alert("Could not connect to backend server. Make sure it's running.");
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        function setRingProgress(circleId, solved, total) {
+            const circle = document.getElementById(circleId);
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            
+            const percent = total > 0 ? (solved / total) : 0;
+            const offset = circumference - (percent * circumference);
+            
+            circle.style.strokeDashoffset = offset;
+        }
+
+        function updateUI(data) {
+            const results = document.getElementById('dashboard-results');
+            document.getElementById('displayUsername').textContent = data.username;
+            document.getElementById('globalRanking').textContent = `Ranking: #${data.ranking.toLocaleString()}`;
+            document.getElementById('contributionPoints').textContent = `Reputation: ${data.reputation}`;
+            
+            // Set Avatar
+            document.getElementById('userAvatar').textContent = data.username.charAt(0).toUpperCase();
+
+            // Easy Stats
+            document.getElementById('easySolved').textContent = data.stats.easy.solved;
+            document.getElementById('easyTotal').textContent = `/${data.stats.easy.total}`;
+            setRingProgress('easyRing', data.stats.easy.solved, data.stats.easy.total);
+
+            // Medium Stats
+            document.getElementById('mediumSolved').textContent = data.stats.medium.solved;
+            document.getElementById('mediumTotal').textContent = `/${data.stats.medium.total}`;
+            setRingProgress('mediumRing', data.stats.medium.solved, data.stats.medium.total);
+
+            // Hard Stats
+            document.getElementById('hardSolved').textContent = data.stats.hard.solved;
+            document.getElementById('hardTotal').textContent = `/${data.stats.hard.total}`;
+            setRingProgress('hardRing', data.stats.hard.solved, data.stats.hard.total);
+
+            // Overall Solved
+            const allSolved = data.stats.all.solved;
+            const allTotal = data.stats.all.total;
+            const percent = allTotal > 0 ? Math.round((allSolved / allTotal) * 100) : 0;
+
+            document.getElementById('allSolvedPercent').textContent = `${percent}% Solved`;
+            document.getElementById('allSolvedRatio').textContent = `${allSolved}/${allTotal}`;
+            document.getElementById('allProgressBar').style.width = `${percent}%`;
+
+            results.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

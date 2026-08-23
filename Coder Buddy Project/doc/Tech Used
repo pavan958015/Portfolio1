@@ -1,0 +1,31 @@
+// Current used-
+// Technologies Used
+
+Python
+LangChain
+LangGraph
+Groq LLM API
+Ollama Local LLM API (gemma4:e2b-it-qat via langchain-ollama)
+Pydantic
+File System Tools
+PyCharm / VS Code IDE
+
+
+// Future Technology-
+
+Full-stack application generation (Done)
+
+Database integration (Done) - using localStorage
+
+File upload from the local file system  (Done)
+
+
+Code review and testing agents (Done)- after the project done it will
+                                    check code for project means all modules all done successfully or not
+
+
+Support for multiple programming languages (Done)
+
+Cloud deployment automation
+
+CI/CD pipeline generation

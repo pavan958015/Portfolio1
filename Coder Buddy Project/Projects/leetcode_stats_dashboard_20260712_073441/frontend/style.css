@@ -1,0 +1,372 @@
+/* --- LeetCode Theme Design Tokens --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    --card-bg: rgba(38, 38, 38, 0.55);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(26, 26, 26, 0.8);
+    --text-primary: #eff1f6;
+    --text-secondary: #8a8a8e;
+    --primary-btn: linear-gradient(90deg, #ffa116 0%, #f78d0a 100%);
+    --primary-btn-hover: linear-gradient(90deg, #f78d0a 0%, #e07b00 100%);
+    --accent: #ffa116;
+}
+
+/* --- Base Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    padding: 3rem 1.5rem;
+}
+
+/* --- Decorative Glowing Elements --- */
+.glow-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 161, 22, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    top: -50px;
+    left: -50px;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.glow-orb.secondary {
+    top: 50%;
+    right: -150px;
+    background: radial-gradient(circle, rgba(247, 141, 10, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* --- Main Layout --- */
+.app-container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+.app-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.app-header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-header .logo .icon {
+    font-size: 2.2rem;
+    color: var(--accent);
+}
+
+.app-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #ffffff 0%, #ffc069 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- Glassmorphic UI Cards --- */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: #f3f4f6;
+}
+
+.glass-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Inputs --- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1.2rem;
+    font-size: 1.1rem;
+    color: #8c8c8c;
+}
+
+.form-group input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1rem 1rem 3rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 161, 22, 0.15);
+}
+
+/* --- Primary Button --- */
+.btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-btn);
+}
+
+.btn-primary:hover {
+    background: var(--primary-btn-hover);
+}
+
+.btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* --- Loader Spinner --- */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 42px;
+    height: 42px;
+    border: 3.5px solid rgba(255, 255, 255, 0.05);
+    border-top: 3.5px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader-container p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Overview Result Card --- */
+.overview-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.avatar-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffa116 0%, #f78d0a 100%);
+    color: #1a1a1a;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255, 161, 22, 0.15);
+}
+
+.user-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.badge-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge {
+    background: rgba(255, 161, 22, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(255, 161, 22, 0.15);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* --- Circular Stats Breakdown --- */
+.progress-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ring-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bar {
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.solved-count {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.total-count {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: -0.1rem;
+}
+
+.diff-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.progress-item.easy .diff-label { color: #10b981; }
+.progress-item.medium .diff-label { color: #f59e0b; }
+.progress-item.hard .diff-label { color: #ef4444; }
+
+/* --- ProgressBar Total Solved --- */
+.total-solved-card .bar-wrapper {
+    margin-top: 0.5rem;
+}
+
+.bar-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.bar-bg {
+    width: 100%;
+    height: 10px;
+    background: #1e293b;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffa116 0%, #ffd069 100%);
+    border-radius: 5px;
+    transition: width 0.6s ease;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 500px) {
+    body {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .glass-card {
+        padding: 1.5rem;
+    }
+    
+    .progress-container {
+        gap: 1rem;
+    }
+}

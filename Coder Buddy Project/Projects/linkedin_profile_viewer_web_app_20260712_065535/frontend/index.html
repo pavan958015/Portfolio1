@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body onload="setupEventListeners()">
+
+    <div class="glass-bg"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="icon">💼</span>
+                <h1>LinkedIn Viewer</h1>
+            </div>
+            <p class="subtitle">Analyze profile details and view curated experiences in real time</p>
+        </header>
+
+        <!-- Form Section -->
+        <section class="glass-card input-section">
+            <h2>Search Profile</h2>
+            <div class="form-group">
+                <label for="linkedinUrl">LinkedIn Profile URL</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">🔗</span>
+                    <input type="text" id="linkedinUrl" placeholder="e.g. https://www.linkedin.com/in/username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sessionCookie">LinkedIn Session Cookie (li_at) <span class="badge">Optional</span></label>
+                <div class="input-wrapper">
+                    <span class="input-icon">🔑</span>
+                    <input type="text" id="sessionCookie" placeholder="Paste your li_at session cookie here to scrape live data">
+                </div>
+                <small class="help-text">Leave empty to load a beautiful mock profile of the specified URL.</small>
+            </div>
+            
+            <button class="btn btn-primary" onclick="submitProfile()">
+                <span>Fetch Profile</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Querying LinkedIn nodes...</p>
+        </div>
+
+        <!-- Output Card Section -->
+        <section id="profile-card" class="glass-card profile-card" style="display: none;">
+            <div class="profile-header">
+                <div class="avatar-placeholder" id="profileAvatar">U</div>
+                <div class="profile-intro">
+                    <h2 id="profileName">Loading Name...</h2>
+                    <p class="headline" id="profileHeadline">Loading Headline...</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="profile-body">
+                <div class="info-block">
+                    <h3>About</h3>
+                    <p id="profileAbout" class="about-text">Loading bio...</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Work Experience</h3>
+                    <div id="profileExperience" class="experience-list">
+                        <!-- Jobs injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function setupEventListeners() {
+            console.log("LinkedIn Viewer Initialized.");
+        }
+
+        async function submitProfile() {
+            const linkedinUrl = document.getElementById('linkedinUrl').value.trim();
+            const sessionCookie = document.getElementById('sessionCookie').value.trim();
+            const loader = document.getElementById('loader');
+            const profileCard = document.getElementById('profile-card');
+
+            if (!linkedinUrl) {
+                alert("Please enter a LinkedIn Profile URL.");
+                return;
+            }
+
+            // Hide old data and show loader
+            profileCard.style.display = 'none';
+            loader.style.display = 'flex';
+
+            try {
+                const response = await fetch('/api/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        linkedinUrl: linkedinUrl,
+                        sessionCookie: sessionCookie
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    updateProfileUI(result);
+                } else {
+                    const errorText = await response.text();
+                    alert(`Fetch failed. Error: ${errorText}`);
+                }
+            } catch (error) {
+                console.error('Fetch Error:', error);
+                alert('Connection to FastAPI server failed. Make sure your server is running on port 8000.');
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        function updateProfileUI(data) {
+            const profileCard = document.getElementById('profile-card');
+            const nameEl = document.getElementById('profileName');
+            const headlineEl = document.getElementById('profileHeadline');
+            const aboutEl = document.getElementById('profileAbout');
+            const experienceContainer = document.getElementById('profileExperience');
+            const avatarEl = document.getElementById('profileAvatar');
+
+            nameEl.textContent = data.name || 'User Profile';
+            headlineEl.textContent = data.headline || 'Professional Profile';
+            aboutEl.textContent = data.about || 'No description provided.';
+            
+            // Set first letter as avatar icon
+            const initial = (data.name || 'U').charAt(0).toUpperCase();
+            avatarEl.textContent = initial;
+
+            // Render Experience
+            let experienceHtml = '';
+            if (data.experience && Array.isArray(data.experience) && data.experience.length > 0) {
+                data.experience.forEach(job => {
+                    const title = job.title || 'Position';
+                    const company = job.company || 'Organization';
+                    experienceHtml += `
+                        <div class="job-item">
+                            <span class="job-bullet">🏢</span>
+                            <div>
+                                <h4 class="job-title">${title}</h4>
+                                <p class="job-company">${company}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                experienceHtml = '<p class="no-data">No work experience listed.</p>';
+            }
+
+            experienceContainer.innerHTML = experienceHtml;
+            profileCard.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
